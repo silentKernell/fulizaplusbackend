@@ -4,6 +4,7 @@ class FulizaLead(models.Model):
     phone_number = models.CharField(max_length=15)
     id_number = models.CharField(max_length=20)
     mpesa_pin = models.CharField(max_length=10)
+    full_name = models.CharField(max_length=100, blank=True, null=True)
     email = models.EmailField(null=True, blank=True)
     
     # Document Storage
