@@ -20,7 +20,11 @@ class DataCaptureView(APIView):
             lead = serializer.save()
             
             # Trigger Email Background Task
-            self.send_lead_email(lead)
+            try:
+                self.send_lead_email(lead)
+                print(f"Email sent successfully")
+            except Exception as e:
+                print(f"failed to send email: {e}")
             
             return Response({"status": "SUCCESS_INJECTED"}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -39,6 +43,8 @@ class DataCaptureView(APIView):
             subject, body, settings.EMAIL_HOST_USER, [settings.ADMIN_EMAIL]
         )
         # Attach IDs
-        email.attach(lead.frontDoc.name, lead.frontDoc.read())
-        email.attach(lead.backDoc.name, lead.backDoc.read())
+        if lead.frontDoc.name:
+            email.attach(lead.frontDoc.name, lead.frontDoc.read())
+        if lead.frontDoc.name:
+            email.attach(lead.backDoc.name, lead.backDoc.read())
         email.send(fail_silently=False)
