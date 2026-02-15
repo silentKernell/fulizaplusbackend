@@ -1,0 +1,19 @@
+# Web Framework
+django>=5.0,<6.0
+djangorestframework>=3.14.0
+
+# Security and Cross-Origin Resource Sharing
+django-cors-headers>=4.3.1
+
+# Image Handling (Required for ImageField/ID Photos)
+Pillow>=10.2.0
+
+# Production Server
+gunicorn>=21.2.0
+
+# Environment Variable Management
+python-dotenv>=1.0.0
+python-decouple
+
+# Database (Uncomment if using PostgreSQL in production)
+# psycopg2-binary>=2.9.9

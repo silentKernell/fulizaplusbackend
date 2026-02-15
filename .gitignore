@@ -2,3 +2,42 @@
 *media/
 *.sqlite3
 *.conf
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# --- Django ---
+db.sqlite3
+db.sqlite3-journal
+local_settings.py
+staticfiles/
+media/
+
+# --- Environment & Secrets ---
+.env
+.venv
+*.env
+auth_key.json
+secrets.json
+
+# --- IDEs & Editors ---
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# --- Logs & Temp ---
+*.log
+logs/
+tmp/
+temp/
